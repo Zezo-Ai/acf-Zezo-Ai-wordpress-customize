@@ -5941,6 +5941,11 @@
 
       // set active
       this.setActive(tab);
+
+      // Tab switches change page height; let WP re-evaluate whether
+      // #adminmenuwrap should be pinned, otherwise it can stay
+      // position:fixed against a now-shorter page and lock scroll.
+      $(document).trigger('wp-pin-menu');
     },
     closeTab: function (tab) {
       // close
